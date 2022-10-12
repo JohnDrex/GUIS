@@ -6,7 +6,7 @@ class MyGUI:
         self.main_window = tkinter.Tk()
 
         self.main_window.geometry('500x500')
-        self.main_window.title('Pizza Selections')
+        self.main_window.title('Pizza')
 
         self.topframe = tkinter.Frame(self.main_window)
         self.midframe = tkinter.Frame(self.main_window)
@@ -17,15 +17,12 @@ class MyGUI:
         self.radio_var = tkinter.IntVar()
         self.add = tkinter.Label(self.topframe, text = "Name")
         self.entry = tkinter.Entry(self.topframe, width = 10)
-        self.crust = tkinter.Label(self.midframe, text = "crust")
+        self.crust = tkinter.Label(self.midframe, text = "CRUST")
         self.rb1 = tkinter.Radiobutton(self.midframe, text = "Regular Crust($0)", variable = self.radio_var, value = 0)
         self.rb2 = tkinter.Radiobutton(self.midframe, text = "Thin Crust(+$1)", variable = self.radio_var, value = 1)
         self.rb3 = tkinter.Radiobutton(self.midframe, text = "Thick Crust(+$2)", variable = self.radio_var, value = 2)
-        self.rb4 = tkinter.Radiobutton(self.midframe, text = "Cheese Stuffed Crust(+$3)", variable = self.radio_var, value= 3)
-        self.looks3 = tkinter.Label(self.midframe, text = "**********************************************")
 
         self.rb1.select()
-        self.looks.pack()
         self.add.pack(side="left")
         self.entry.pack(side="left")
 
@@ -34,7 +31,6 @@ class MyGUI:
         self.rb1.pack()
         self.rb2.pack()
         self.rb3.pack()
-        self.rb4.pack()
 
         self.cb1_var = tkinter.IntVar()
         self.cb2_var = tkinter.IntVar()
@@ -43,7 +39,7 @@ class MyGUI:
         self.cb5_var = tkinter.IntVar()
         self.cb6_var = tkinter.IntVar()
 
-        self.toppings = tkinter.Label(self.midframe, text = "tOPPINGS")
+        self.toppings = tkinter.Label(self.midframe, text = "TOPPINGS")
         self.cb1 = tkinter.Checkbutton(self.midframe, text = "Pepperoni(+$0.50)", variable = self.cb1_var)
         self.cb2 = tkinter.Checkbutton(self.midframe, text = "Sausage(+$0.60)", variable = self.cb2_var)
         self.cb3 = tkinter.Checkbutton(self.midframe, text = "Ham(+$0.65)", variable = self.cb3_var)
@@ -100,8 +96,7 @@ class MyGUI:
         
         totcost = 5 + topcost + self.radio_var.get()
 
-        tkinter.messagebox.showinfo("Cost of pizza: ","***********************************" + "\n" + "Order For: " + name + "\n" + "Pizza Cost: " + "${:,.2f}".format(totcost)+ "\n" + "***********************************" + "\n" + message+ "***********************************" + "\n")
-
+        tkinter.messagebox.showinfo("Cost of pizza: ","Order Name: " + name + "\n" + "Pizza Cost: " + "${:,.2f}".format(totcost)+ "\n")
 
 my_gui = MyGUI()
 
